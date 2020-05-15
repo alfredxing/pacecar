@@ -3,78 +3,80 @@
 }
 
 body {
-  font-family: monospace;
-  font-size: 14px;
-  width: 50%;
+  font: 400 14px/1.6 'IBM Plex Mono', monospace;
+  width: 600px;
   margin: 0 auto;
+  text-rendering: optimizeLegibility;
 }
 
-#welcome {
-  font-weight: bold;
-  font-size: 18px;
-  text-align: center;
+.pacecar {
+  transform: translateY(0);
+  transition: transform cubic-bezier(0.35, 0.19, 0.1, 0.99) 420ms;
+}
+.pacecar--start {
+  transform: translateY(117px);
 }
 
-#start {
-  cursor: pointer;
-  text-align: center;
-  padding: 5px;
-  border: 1px solid black;
-}
-
-#start:hover {
-  text-decoration: underline;
-}
-
-#play-again {
-  cursor: pointer;
-  text-align: center;
-  padding: 5px;
-  color: red;
-  border: 1px solid red;
-}
-
-#play-again:hover {
-  text-decoration: underline;
-}
-
-.current-page {
-  padding: 8px;
-}
-
-.choices {
-  margin-top: 8px;
+.logo {
+  margin: -17px 0 60px 1px;
   display: flex;
+  align-items: flex-end;
+  opacity: 0.25;
+  transition: opacity cubic-bezier(0.35, 0.19, 0.1, 0.99) 420ms;
+  user-select: none;
+  pointer-events: none;
+}
+.logo__version {
+  transition: opacity cubic-bezier(0.35, 0.19, 0.1, 0.99) 420ms;
+  margin-bottom: 8px;
+}
+.logo--start {
+  opacity: 1;
+}
+.logo--start .logo__version {
+  opacity: 0.5;
 }
 
-.choice {
-  padding: 5px;
-  color: blue;
-  border: 1px solid blue;
-  margin-right: 8px;
+.page {
+  margin: 60px 0 120px;
+}
+.page--start .page__choices {
+  margin-top: 40px;
+}
+.page__choice {
+  font: inherit;
+  background: none;
+  border: none;
+  display: block;
+  padding: 0;
+  margin: 0 0 0 -16px;
   cursor: pointer;
+  font-weight: 700;
+  color: #006bbd;
+  outline: none;
+  text-decoration: none;
 }
-
-.latestChoice {
-  font-style: italic;
-  color: blue;
-}
-
-.choice:hover {
+.page__choice:hover .page__choice__name,
+.page__choice:focus .page__choice__name,
+.page__choice:active .page__choice__name {
   text-decoration: underline;
 }
-
-.death-message {
-  color: red;
-  font-weight: bold;
+.page__death {
+  color: #d32200;
+  font-style: italic;
 }
 
-#storyLog {
-  padding-top: 5px;
+.log__entry {
+  margin: 60px 0;
+  opacity: 0.25;
 }
-
-.history-item {
-  border-top: 1px dashed #aaa;
-  padding: 8px;
-  margin: 8px 0;
+.log__entry:nth-child(1) {
+  opacity: 0.75;
+}
+.log__entry:nth-child(2) {
+  opacity: 0.5;
+}
+.log__choice {
+  color: #006bbd;
+  font-style: italic;
 }

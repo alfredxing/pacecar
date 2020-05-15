@@ -6,8 +6,10 @@ const causeOfDeath = (cause) =>
   Page.dialog(
     <>
       {cause}
-      <p className="death-message">Game over</p>
-      <p id="play-again">Play again?</p>
+      <p className="page__death">Game over.</p>
+      <a className="page__choice" href="/">
+        → <span className="page__choice__name">Play again?</span>
+      </a>
     </>,
   );
 
